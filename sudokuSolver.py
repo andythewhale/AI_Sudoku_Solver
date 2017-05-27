@@ -274,21 +274,26 @@ def search(values):
             return attempt
         
 def solve(grid):
-
+    """
+    Find the solution to a Sudoku grid.
+    Args:
+        grid(string): a string representing a sudoku grid.
+            Example: '2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3'
+    Returns:
+        The dictionary representation of the final sudoku grid. False if no solution exists.
+    """
     values = grid_values(grid)
     values = search(values)
 
     return values
 
-    if __name__ == '__main__':
+if __name__ == '__main__':
     diag_sudoku_grid = '2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3'
     display(solve(diag_sudoku_grid))
-
+    from visualize import visualize_assignments
+    visualize_assignments(assignments)
     try:
         from visualize import visualize_assignments
         visualize_assignments(assignments)
-
-    except SystemExit:
-        pass
     except:
         print('Beep Boop')
